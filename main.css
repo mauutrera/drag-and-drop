@@ -1,0 +1,183 @@
+@import url('./assets/css/font-face.css');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'OpenSans', sans-serif;
+}
+
+body {
+    background: rgb(248, 248, 248);
+}
+
+.container {
+    max-width: 800px;
+    margin: 2em auto;
+    padding: 0 4em;
+}
+
+.start {
+    display: block;
+}
+
+.start .preview {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 2px;
+    overflow: auto;
+    scrollbar-width: thin;
+    margin: 1em auto;
+}
+
+.start .preview:empty {
+    margin: .5em auto;
+}
+
+.start .preview img {
+    width: 50px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.start #dragbox {
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
+    background: #fefefe;
+    padding: 2em;
+    border: 4px dashed #020202;
+    border-radius: 1em;
+}
+
+.start #dragbox label {
+    color: rgb(5, 95, 241);
+    border-bottom: 2px solid;
+    cursor: pointer;
+}
+
+.start h1 {
+    text-align: center;
+}
+
+.start h2 {
+    margin-top: 20px;
+}
+
+.start p {
+    text-align: justify;
+}
+
+.start pre {
+    width: 100%;
+    display: block;
+    font-size: 1.2em;
+    margin: 5px auto;
+    padding: 1em;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+.start pre, .start pre * {
+    font-family: monospace;
+}
+
+.start code {
+    font-family: monospace;
+    font-size: 1.3em;
+}
+
+.start th, .start td {
+    padding: 5px;
+    border: 1.5px #020202 solid;
+}
+
+.start table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.start .table-responsive {
+    overflow-x: auto;
+}
+
+.start tr td:nth-child(3) {
+    text-align: center;
+}
+
+.start ul {
+    padding: 1em;
+}
+
+footer {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+footer .footer-head {
+    display: block;
+    padding: 1em;
+}
+
+footer .footer-head div {
+    width: max-content;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f0f0f0;
+    padding: 1em;
+    border-radius: 5px;
+}
+
+footer .footer-menu {
+    display: block;
+    padding: 1em;
+    padding-bottom: 0;
+}
+
+
+footer .footer-menu ul {
+    margin: auto;
+}
+
+footer .footer-menu ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 5px;
+}
+
+footer .footer-menu ul li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+footer .footer-copyright {
+    display: block;
+    color: #2e2e2e;
+    padding: 1em;
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        padding: 0 2em;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    footer .footer-head div {
+        width: auto;
+    }
+}
+
+/* For Edit */
+
+#dataHTML {
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+}

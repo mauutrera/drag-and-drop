@@ -1,0 +1,238 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileDragBox - Demo</title>
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./assets/highlight/github-dark.css">
+<style type="text/css" id="operaUserStyle"></style></head><body>
+    <div class="container">
+        <div class="start">
+            <h1>FileDragBox.js</h1>
+            <div class="preview"></div>
+            <form action="uploadTest.php" method="post" enctype="multipart/form-data">
+                <div id="dragbox">
+                    Drag and Drop Images or <label for="file">Click Here!</label>
+                    <input type="file" name="files[]" id="file" multiple="" hidden="" accept="image/jpeg,image/png">
+                </div>
+            </form>
+            <br>
+            <!-- Demo Code -->
+            <pre class="hljs language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"preview"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"dragbox"</span>&gt;</span>
+    Drag and Drop Images or <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"file"</span>&gt;</span>Click Here!<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"file"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"files[]"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"file"</span> <span class="hljs-attr">multiple</span> <span class="hljs-attr">hidden</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+
+            <pre class="hljs language-javascript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">FileDragBox</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'./lib/filedragbox.js'</span>;
+
+<span class="hljs-keyword">new</span> <span class="hljs-title class_">FileDragBox</span>(<span class="hljs-string">'#dragbox'</span>, {
+    <span class="hljs-attr">inputFile</span>: <span class="hljs-string">'#file'</span>,
+    <span class="hljs-attr">accept</span>: [<span class="hljs-string">'image/jpeg'</span>, <span class="hljs-string">'image/png'</span>],
+    <span class="hljs-attr">success</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">e, files</span>) {
+        <span class="hljs-keyword">const</span> preview = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">'.preview'</span>);
+        preview.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">''</span>;
+        [...files].<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">image</span>) =&gt;</span> {
+            <span class="hljs-keyword">const</span> img = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">'img'</span>);
+            img.<span class="hljs-property">src</span> = <span class="hljs-variable constant_">URL</span>.<span class="hljs-title function_">createObjectURL</span>(image);
+            img.<span class="hljs-property">title</span> = image.<span class="hljs-property">name</span>;
+            preview.<span class="hljs-title function_">appendChild</span>(img);
+        });
+    }
+});</pre>
+
+            <!-- Guide/Wiki -->
+            <h2>What is FileDragBox.js?<br></h2>
+            <p>FileDragBox.js is a simple and minimalist library that allows you to turn an HTML element into a drag and drop container for receiving files, you can optionally attach the received files to an &lt;input:file&gt; to work with traditional forms.</p>
+
+            <h2>How does it work?</h2>
+            <p>Following the minimalist philosophy, FileDragBox.js does not interfere with the interface, you have all the freedom to give the design to your element where the files will be dragged and dropped, this library is only responsible for giving it the functionality, giving the element its virtues similar to an &lt;input:file&gt; element but simply by dragging the files into the box.</p>
+
+            <h2>How to install it?</h2>
+            <p><b>Shape </b><strong>#1.</strong> Downloading the '<a href="http://localhost:5010/#" download="FileDragBox.js"><code>FileDragBox.js</code></a>' library file locally, or using the&nbsp;<strong><code>CDN</code></strong>&nbsp;and adding it to your html.</p>
+            <pre class="hljs language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"./lib/filedragbox.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span> <span class="hljs-comment">&lt;!-- IN LOCAL --&gt;</span></pre>
+            <pre class="hljs language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//cdn.pkg/lib/filedragbox.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span> <span class="hljs-comment">&lt;!-- CDN --&gt;</span></pre>
+
+            <p><b>Shape&nbsp;</b><strong>#2.</strong>&nbsp;Using&nbsp;<strong><code>NPM</code></strong>.</p>
+            <pre class="hljs language-css">&gt; npm install filedragbox <span class="hljs-attr">--save</span></pre>
+            <pre class="hljs language-javascript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">FileDragBox</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'./lib/filedragbox.js'</span>;</pre>
+
+            <h2>How to use it?</h2>
+            <p><b>Step</b><strong>&nbsp;1:</strong> Using it is very easy, if you download it locally or are using it with&nbsp;<strong><code>CDN</code></strong>, add the&nbsp;<span style="font-family: monospace; font-size: 16.9px;">&lt;script:src&gt;</span>&nbsp;with the library to your html.</p>
+            <pre class="hljs language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//cdn.pkg/lib/filedragbox.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span> <span class="hljs-comment">&lt;!-- CDN --&gt;</span></pre>
+
+            <p>If you are using&nbsp;<strong><code>NPM</code></strong>, import the library in your JavaScript.</p>
+            <pre class="hljs language-javascript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">FileDragBox</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'./lib/filedragbox.js'</span>;</pre>
+
+            <br><p><b>Step</b><strong>&nbsp;</strong><strong>2:</strong> Add an element in your html (to which the file will be dragged and dropped), to this element add an&nbsp;<span style="font-family: monospace; font-size: 16.9px;">'id'</span>&nbsp;or a&nbsp;<code>'class'</code>&nbsp;to identify the element.</p>
+            <pre class="language-html hljs language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"dragbox"</span>&gt;</span>
+    Drag and Drop Files Here!
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+
+            <br><p><b>Step&nbsp;</b><strong>3:</strong> Finally, create a new instance of the&nbsp;<strong><code>'FileDragBox'</code></strong>&nbsp;class:&nbsp;<span style="font-family: monospace; font-size: 16.9px;">new FileDragBox('selector', options)</span>. The constructor receives two arguments, the selector of the element to which the drag and drop is to be applied (in this example the selector is the id&nbsp;<span style="font-family: monospace; font-size: 16.9px;">'#dragbox'</span>), and as a second argument the options.</p>
+            <pre class="hljs language-javascript"><span class="hljs-keyword">new</span> <span class="hljs-title class_">FileDragBox</span>(<span class="hljs-string">'#dragbox'</span>, {
+    <span class="hljs-attr">accept</span>: [<span class="hljs-string">'image/jpeg'</span>, <span class="hljs-string">'image/png'</span>],
+    <span class="hljs-attr">success</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">e, files</span>) {
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(files)
+    }
+});</pre>
+
+            <br>
+            <p><strong>Note:</strong> The 'success:' option receives an anonymous function which supplies two arguments to the function, the first is the&nbsp;<span style="font-family: monospace; font-size: 16.9px;">'event'</span>&nbsp;and the second is the&nbsp;<span style="font-family: monospace; font-size: 16.9px;">'FileList'</span>&nbsp;(file collection) of the files that have been dragged into the box, in the case of the example, those that have been dragged to the element&nbsp;<span style="font-family: monospace; font-size: 16.9px;">'#dragbox'&nbsp;</span>(in the case of the example, each time files are dragged to the element, the files "contained" in the box are displayed in the console, that is to say , the files that have been stored in the&nbsp;<span style="font-family: monospace; font-size: 16.9px;">FileList</span>).</p>
+            <br>
+            <p>The&nbsp;<span style="font-family: monospace; font-size: 16.9px;">'accept'</span>&nbsp;option (optional), receives an array with the file types allowed in the drag and drop, if you drag a file of a type that is not in the&nbsp;<span style="font-family: monospace; font-size: 16.9px;">array</span>, it will not be added to the&nbsp;<span style="font-family: monospace; font-size: 16.9px;">FileList</span>.</p>
+
+            <br>
+            <h3>Use without input:file</h3>
+            <p>If you don't need to use a 'file'&nbsp;<span style="font-family: monospace; font-size: 16.9px;">&lt;input&gt;</span>&nbsp;associated with the drag and drop element, you can use an element to drag the files and via the&nbsp;<code>success</code>&nbsp;option you receive the dragged files and be done with them. what you need eg. send them to the backend or display them in the DOM, etc.</p>
+            <pre class="hljs language-javascript"><span class="hljs-keyword">new</span> <span class="hljs-title class_">FileDragBox</span>(<span class="hljs-string">'#dragbox'</span>, {
+    <span class="hljs-attr">success</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">e, files</span>) {
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(files)
+    }
+});</pre>
+
+            <br><p><b>Important</b>,&nbsp;<code>success</code>&nbsp;will be executed every time files are dragged and dropped onto the element (in this case the&nbsp;<span style="font-family: monospace; font-size: 16.9px;">'#dragbox'</span>&nbsp;element).</p>
+
+            <br>
+            <h3>Use associated with an input:file</h3>
+            <p>This option is perfect for working with traditional forms. To associate an&nbsp;<span style="font-family: monospace; font-size: 16.9px;">&lt;input:file&gt;</span>&nbsp;inside the drag and drop, you need to add the 'inputFile:' option, which receives a&nbsp;<code>string</code>&nbsp;with the selector (<code>class</code>&nbsp;or&nbsp;<span style="font-family: monospace; font-size: 16.9px;">id</span>) of the&nbsp;<span style="font-family: monospace; font-size: 16.9px;">&lt;input:file&gt;</span>&nbsp;you want to associate when dragging and dropping.</p>
+
+            <pre class="language-html hljs language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"dragbox"</span>&gt;</span>
+    Drag and Drop Images or <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"file"</span>&gt;</span>Click Here!<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"file"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"files[]"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"file"</span> <span class="hljs-attr">multiple</span> <span class="hljs-attr">hidden</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+
+            <pre class="hljs language-javascript"><span class="hljs-keyword">new</span> <span class="hljs-title class_">FileDragBox</span>(<span class="hljs-string">'#dragbox'</span>, {
+    <span class="hljs-attr">inputFile</span>: <span class="hljs-string">'#file'</span>,
+    <span class="hljs-attr">success</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">e, files</span>) {
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(files);
+    }
+});</pre>
+
+            <br>
+            <p>Now when you drag files into the element they will be added to the&nbsp;<span style="font-family: monospace; font-size: 16.9px;">'FileList'</span>&nbsp;of the associated&nbsp;<span style="font-family: monospace; font-size: 16.9px;">&lt;input:file&gt;</span>.</p>
+
+            <br>
+            <p>If you submit the form in the traditional way, any files you drag into the drag and drop element will also be submitted with the associated&nbsp;<span style="font-family: monospace; font-size: 16.9px;">&lt;input:file&gt;</span>.</p>
+
+            <br>
+            <p>Every time files are dragged into the box, a 'change' event is also dispatched on the associated input, so in this case it's not strictly necessary to use&nbsp;<span style="font-family: monospace; font-size: 16.9px;">'success:'</span>, you could use&nbsp;<span style="font-family: monospace; font-size: 16.9px;">myInput.addEventListener('change', (e) =&gt; {})</span>&nbsp;instead of&nbsp;<span style="font-family: monospace; font-size: 16.9px;">'success:'</span>.</p>
+
+            <pre class="hljs language-csharp"><span class="hljs-keyword">new</span> FileDragBox(<span class="hljs-string">'#dragbox'</span>, { inputFile: <span class="hljs-string">'#file'</span> });</pre>
+
+            <pre class="hljs language-javascript"><span class="hljs-keyword">const</span> myInput = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">'#dragbox'</span>);
+myInput.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">'change'</span>, <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'MyInput:'</span>, e.<span class="hljs-property">target</span>.<span class="hljs-property">files</span>);
+})</pre>
+
+            <br>
+            <p><strong>Note:</strong> The&nbsp;<span style="font-family: monospace; font-size: 16.9px;">'success:'</span>&nbsp;function will also fire when you add files via the associated&nbsp;<span style="font-family: monospace; font-size: 16.9px;">&lt;input:file&gt;</span>.</p>
+
+            <h2>How to clear the file list?</h2>
+            <p>To clear (reset) the list of files in the drag and drop element and associated&nbsp;<code>input</code>, you can use the&nbsp;<span style="font-family: monospace; font-size: 16.9px;">clear()&nbsp;</span>method.</p>
+
+            <pre class="hljs language-csharp"><span class="hljs-keyword">const</span> mydragbox = <span class="hljs-keyword">new</span> FileDragBox(<span class="hljs-string">'#dragbox'</span>, { inputFile: <span class="hljs-string">'#file'</span> });</pre>
+            <pre class="hljs language-scss">mydragbox<span class="hljs-selector-class">.clear</span>(); <span class="hljs-comment">// Clear Files (items) in DataTransfer</span></pre>
+
+            <h2>Options</h2>
+            <div class="table-responsive">
+                <table>
+                    <tbody><tr>
+                        <th>Option</th>
+                        <th>Description</th>
+                        <th>Default</th></tr><tr><td>inputFile</td>
+                        <td>Receives a&nbsp;<code>string</code>&nbsp;with the input selector (of type file) to associate with the drag and drop element.</td>
+                        <td>Null <br> (Without Associated Input)</td>
+                    </tr>
+                    <tr>
+                        <td>accept</td>
+                        <td>Receive an array with the accepted file types ['type/format']:<br>
+                            <ul>
+                                <li>['image/jpeg', 'image/png'] <small>(only accepts jpeg, jpg, png images)</small>
+                                </li>
+                                <li>['image/*'] <small>(only accepts images, in any format)</small></li>
+                                <li>['video/*'] <small>(only accept videos)</small></li>
+                                <li>etc.</li>
+                            </ul>
+                        </td>
+                        <td>Null <br> (Any File)</td>
+                    </tr>
+                    <tr>
+                        <td>success</td>
+                        <td>Receives a callback, which is supplied with two arguments, the&nbsp;<code>event</code>&nbsp;and the&nbsp;<code>FileList</code>&nbsp;(list with the added files).&nbsp; Recibe un callback, al cual se le proporcionan dos argumentos, el <code>event</code>
+                            (evento) y
+                            el <code>FileList</code> (lista con los archivos agregados).<br>
+                            <br>
+                            Example: <code>success: (event, FileList) =&gt; console.log(FileList);</code>
+                            <br>
+                            <br>This is executed whenever files are dragged onto drag and drop items or items are added via the associated&nbsp;<code>input</code>.<br>
+                            <br>
+                            <strong>Note:</strong> If I drag the files it will receive a&nbsp;<span style="font-family: monospace; font-size: 16.9px;">'drop'</span>&nbsp;type event, if it is done through the associated&nbsp;<code>input</code>, the event will be of&nbsp;'input'&nbsp;type.<br></td>
+                        <td>Null</td>
+                    </tr>
+                </tbody></table>
+            </div>
+
+            <h2>Methods</h2>
+            <div class="table-responsive">
+                <table>
+                    <tbody><tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>clear()</td>
+                        <td>Removes (resets) the list of files added to the&nbsp;<code>FileList</code>&nbsp;(removes the&nbsp;<code>DataTrasfer</code>&nbsp;and&nbsp;<span style="font-family: monospace; font-size: 16.9px;">input.value</span>&nbsp;elements).<br>
+                            <br>
+                            You can use it when you need to remove/clean up the added files, after the form is submitted with JavaScript.<br>
+                            <br>
+                            <strong>Note:</strong>&nbsp;If you submit the form the traditional way, this won't be necessary, as submitting it reloads the page and clears the form information.<br></td>
+                    </tr>
+                </tbody></table>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-head">
+            <div>
+                <p>
+                    Si la libreria te gusto y/o te fue util, puedes darme una estrella en GitHub 😊
+                </p>
+                <a class="github-button" href="https://github.com/buttons/github-buttons" data-icon="octicon-star" data-size="large" aria-label="Star buttons/github-buttons on GitHub">Star</a>
+            </div>
+        </div>
+        <div class="footer-menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="">View On GitHub</a></li>
+                <li><a href="">About Me</a></li>
+            </ul>
+        </div>
+        <div class="footer-copyright">
+            MauUtrera © 2023 - License MIT
+        </div>
+        <!-- For Edit -->
+        <button id="dataHTML">Save File</button>
+    </footer>
+    <script src="./assets/highlight/highlight.min.js"></script>
+    <script type="module" src="./main.js"></script>
+    <script async="" defer="" src="https://buttons.github.io/buttons.js"></script>
+    <!-- For Edit -->
+    <script>
+        const btnData = document.querySelector('#dataHTML');
+        const formData = new FormData();
+        formData.append('data', document.head.outerHTML + document.body.outerHTML);
+        
+        btnData.addEventListener('click', (e) => {
+            fetch('saveFileHTML.php', { method: 'POST', body: formData })
+                .then(response => response.json())
+                .then(data => {
+                    const btnBackText = btnData.textContent;
+                    btnData.textContent = 'Success!';
+                    setTimeout(() => {
+                        btnData.textContent = btnBackText;
+                    }, 500);
+                });
+        });
+    </script></body>

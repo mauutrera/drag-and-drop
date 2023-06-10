@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileDragBox - Demo</title>
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="./assets/highlight/github-dark.css">
+</head>
+
+<body>
+    <x-lang></x-lang>
+    <div class="container">
+        <div class="start">
+            <h1>FileDragBox.js</h1>
+
+            <x-demo></x-demo>
+            
+            <!-- Guide/Wiki -->
+            <h2>Que es FileDragBox.js?</h2>
+            <p>FileDragBox.js es una librería simple y minimalista que permite convertir un elemento HTML en un
+                contenedor drag and drop para recibir archivos, opcionalmente puede adjuntar los archivos recibidos a un
+                <code>&lt;input:file&gt;</code> para trabajar con formularios tradicionales.
+            </p>
+
+            <h2>Como Funciona?</h2>
+            <p>Siguiendo la filosofía minimalista, FileDragBox.js no interfiere con la interfaz, usted tiene toda la
+                libertad para darle el diseño a su elemento/caja donde se va a arrastrar y soltar, esta librería solo se
+                encarga de darle la funcionalidad, dándole al elemento virtudes similares a un elemento
+                <code>&lt;input:file&gt;</code> pero solo arrastrando los archivos a la caja.
+            </p>
+
+            <h2>Como Instalarla?</h2>
+            <p><strong>Forma #1.</strong> Descargando el archivo de la libreria '<a href="#"
+                    download="FileDragBox.js"><code>FileDragBox.js</code></a>' en
+                local, o usando el <strong><code>CDN</code></strong> y agregandolo a su html.</p>
+
+            <x-how-install-pt-one></x-how-install-pt-one>
+
+            <p><strong>Forma #2.</strong> Usando <strong><code>NPM</code></strong>.</p>
+
+            <x-how-install-pt-two></x-how-install-pt-two>
+
+            <h2>Como usarla?</h2>
+            <p><strong>Paso #1:</strong> Usarlo es muy facil, si usted la descargo de forma local o la esta usando con
+                <strong><code>CDN</code></strong>, agregue el <code>&lt;script:src&gt;</code> con la libreria a su html.
+            </p>
+
+            <x-how-use-st-one-ptone></x-how-use-st-one-ptone>
+
+            <p>Si esta usando <strong><code>NPM</code></strong>, importe la libreria en su JavaScript.</p>
+
+            <x-how-use-st-one-pttwo></x-how-use-st-one-pttwo>
+
+            <br>
+            <p><strong>Paso #2:</strong> Agregue un elemento en su html (al cual se le aplicara el drag and drop de
+                archivos), a este elemento agréguele un <code>'id'</code> o una <code>'clase'</code> para identificar el
+                elemento.
+            </p>
+
+            <x-how-use-st-two></x-how-use-st-two>
+
+            <br>
+            <p><strong>Paso #3:</strong> Por ultimo, cree una nueva instancia de la clase
+                <strong><code>'FileDragBox'</code></strong>:
+                <code>new FileDragBox('selector', options)</code>. El constructor recibe dos argumentos, el selector del
+                elemento al que se quiere
+                aplicar el drag and drop (en este ejemplo el selector es el id <code>'#dragbox'</code>), y como segundo
+                argumento
+                las opciones.
+            </p>
+
+            <x-how-use-st-three></x-how-use-st-three>
+
+            <br>
+            <p><strong>Nota:</strong> La opción <code>'success:'</code> recibe una función anónima la cual proporciona
+                dos argumentos adentro de la función, el primero es el <code>'evento'</code>, y el segundo es el
+                <code>'FileList'</code>
+                (colección de archivos) de los archivos que han sido arrastrados a la caja, en el caso del ejemplo, los
+                que han sido arrastrados al elemento <code>'#dragbox'</code> (en el caso del ejemplo, cada que se
+                arrastran archivos al elemento, se muestra en consola los archivos "contenidos" en la caja, osea los
+                archivos que han sido almacenados en el <code>FileList</code>).
+            </p>
+            <br>
+            <p>La opción <code>'accept'</code> (opcional), recibe un <code>array</code> con los tipos de archivo
+                permitidos en el drag and drop,
+                si arrastra un archivo de un tipo que no este en el <code>array</code>, este no se agregara al
+                <code>FileList</code>.
+            </p>
+
+            <br>
+            <h3>Usar sin input:file</h3>
+            <p>Si usted no necesita usar un <code>&lt;input&gt;</code> de tipo 'file' asociado al elemento drag and
+                drop, puede solo usar un elemento para arrastrar los archivos, y a través de la opción
+                <code>success</code> usted recibe los archivos arrastrados, y puede hacer con ellos lo que necesite,
+                por ejemplo, enviarlos a el backend o mostrarlos en el DOM, etc.
+            </p>
+
+            <x-use-wth-input-file></x-use-wth-input-file>
+
+            <br>
+            <p><strong>Importante</strong>, <code>success</code> se ejecutara cada que archivos son arrastrados y
+                soltados en el elemento (en este caso el elemento <code>'#dragbox'</code>).
+            </p>
+
+            <br>
+            <h3>Usar asociado a un input:file</h3>
+            <p>Esta opción es perfecta para trabajar con formularios tradicionales. Para asociar un
+                <code>&lt;input:file&gt;</code> dentro del drag and drop, debe de agregar la opción 'inputFile:', la
+                cual recibe un <code>string</code> con el selector (<code>class</code> o <code>id</code>) de el
+                <code>&lt;input:file&gt;</code> que desea
+                asociar al elemento drag and drop.
+            </p>
+
+            <x-use-w-input-file></x-use-w-input-file>
+
+            <br>
+            <p>Ahora cuando usted arrastre archivos dentro del elemento, estos de agregaran al <code>'FileList'</code>
+                del <code>&lt;input:file&gt;</code> asociado.</p>
+
+            <br>
+            <p>Si usted enviá el formulario de la forma tradicional, los archivos que arrastro al elemento drag and drop
+                también se enviaran con el <code>&lt;input:file&gt;</code> asociado.</p>
+
+            <br>
+            <p>Cada que se arrastren archivos a la caja, también se despacha un evento del tipo <code>'change'</code> en
+                el
+                <code>input</code> asociado, por lo que en este caso no es estrictamente necesario usar
+                <code>'success:'</code>, podria usar un <code>myInput.addEventListener('change', (e) => {})</code> en
+                lugar de <code>'success:'</code>.
+            </p>
+
+            <x-use-w-input-file-evt-change></x-use-w-input-file-evt-change>
+
+            <br>
+            <p><strong>Nota:</strong> La función
+                <code>'success:'</code> se disparara también cuando usted agregue archivos a través del
+                <code>&lt;input:file&gt;</code>
+                asociado.
+            </p>
+
+            <h2>Como borrar la lista de archivos?</h2>
+            <p>Para borrar (resetear) la lista de archivos en el elemento drag and drop y en el <code>input</code>
+                asociado puede usar el metodo <code>clear()</code>.</p>
+
+            <x-how-clear-file-list></x-how-clear-file-list>
+
+            <h2>Opciones</h2>
+            <div class="table-responsive">
+                <table>
+                    <tr>
+                        <th>Opción</th>
+                        <th>Descripción</th>
+                        <th>Por Defecto</th>
+                    </tr>
+                    <tr>
+                        <td>inputFile</td>
+                        <td>Recibe un <code>string</code> con el selector del input (de tipo file) a asociar con el
+                            elemento
+                            drag and drop.</td>
+                        <td>Null <br> (Sin Input Asociado)</td>
+                    </tr>
+                    <tr>
+                        <td>accept</td>
+                        <td>Recibe un <code>array</code> con los tipos de archivo aceptados
+                            <code>['tipo/formato']</code>:<br>
+                            <ul>
+                                <li>['image/jpeg', 'image/png'] <small>(solo acepta imagenes jpeg, jpg, png)</small>
+                                </li>
+                                <li>['image/*'] <small>(solo acepta imagenes, en cualquier formato)</small></li>
+                                <li>['video/*'] <small>(solo acepta videos)</small></li>
+                                <li>etc.</li>
+                            </ul>
+                        </td>
+                        <td>Null <br> (Cualquier Archivo)</td>
+                    </tr>
+                    <tr>
+                        <td>success</td>
+                        <td>Recibe un callback, al cual se le proporcionan dos argumentos, el <code>event</code>
+                            (evento) y
+                            el <code>FileList</code> (lista con los archivos agregados).<br>
+                            <br>
+                            Ejemplo: <code>success: (event, FileList) => console.log(FileList);</code>
+                            <br>
+                            <br>Esta se ejecuta cada que se arrastran archivos al elementos drag and drop o se agregan
+                            elementos a través del <code>input</code> asociado.
+                            <br>
+                            <br>
+                            <strong>Nota:</strong> si arrastro los arhivos recibira un evento de tipo
+                            <code>'drop'</code>,
+                            si lo hace a traves del
+                            <code>input</code> asociado, el evento sera de tipo <code>'input'</code>.
+                        </td>
+                        <td>Null</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2>Metodos</h2>
+            <div class="table-responsive">
+                <table>
+                    <tr>
+                        <th>Método</th>
+                        <th>Descripción</th>
+                    </tr>
+                    <tr>
+                        <td>clear()</td>
+                        <td>Borra (resetea) la lista de archivos agregados al <code>FileList</code> (borra los items del
+                            <code>DataTrasfer</code> y el
+                            <code>input.value</code>).
+                            <br>
+                            <br>
+                            Lo puede usar cuando necesite borrar/limpiar los archivos agregados, después de
+                            enviar el formulario con JavaScript.
+                            <br>
+                            <br>
+                            <strong>Note:</strong> si enviá el formulario de la forma tradicional no sera necesario,
+                            puesto
+                            que al enviarlo se
+                            recarga la pagina y la información del formulario se borra.
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-head">
+            <div>
+                <p>
+                    Si la libreria te gusto y/o te fue util, puedes darme una estrella en GitHub 😊
+                </p>
+                <a class="github-button" href="https://github.com/buttons/github-buttons" data-icon="octicon-star"
+                    data-size="large" aria-label="Star buttons/github-buttons on GitHub">Star</a>
+            </div>
+        </div>
+        <div class="footer-menu">
+            <x-links></x-links>
+        </div>
+        <div class="footer-copyright">
+            MauUtrera &copy; 2023 - License MIT
+        </div>
+    </footer>
+    <script src="./components.js"></script>
+    <script src="./assets/highlight/highlight.min.js"></script>
+    <script type="module" src="./main.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script>
+        // const path = window.location.pathname;
+        // const links = document.querySelectorAll('link');
+        // links.forEach(link => {
+        //     link.href = path + URLSearchParams link.href.trim('.');
+        //     console.log(link);
+        // })
+    </script>
+</body>
+
+</html>
