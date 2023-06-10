@@ -1,0 +1,224 @@
+/* Assorted Styles for Common Use */
+
+/* Rounded Tips Style */
+
+/* Nunito-Regular */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/font/Nunito/static/Nunito-Regular.ttf);
+}
+
+/* Quicksand-Regular */
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/font/Quicksand/static/Quicksand-Regular.ttf);
+}
+
+/* Normal Style */
+
+/* Raleway-Regular */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/font/Raleway/static/Raleway-Regular.ttf);
+}
+
+/* Montserrat-Regular */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/font/Montserrat/static/Montserrat-Regular.ttf);
+}
+
+/* OpenSans-Regular */
+@font-face {
+  font-family: 'OpenSans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/font/Open_Sans/static/OpenSans/OpenSans-Regular.ttf);
+}
+
+/* NunitoSans-Regular */
+@font-face {
+  font-family: 'NunitoSans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/font/Nunito_Sans/NunitoSans-Regular.ttf);
+}
+
+/* Narrow Normal Style */
+
+/* Roboto-Regular */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/font/Roboto/Roboto-Regular.ttf);
+}
+
+/* SofiaSans-Regular */
+@font-face {
+  font-family: 'SofiaSans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/font/Sofia_Sans/static/SofiaSans-Regular.ttf);
+}
+
+/* Pre Code Style */
+
+/* SourceCodePro-Regular */
+@font-face {
+  font-family: 'SourceCodePro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/font/Source_Code_Pro/static/SourceCodePro-Regular.ttf);
+}
+
+/* Old West and Newspaper Style */
+
+/* Sanchez-Regular */
+@font-face {
+  font-family: 'Sanchez';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/font/Sanchez/Sanchez-Regular.ttf);
+}
+
+/* RobotoSlab-Regular */
+@font-face {
+  font-family: 'RobotoSlab';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/font/Roboto_Slab/static/RobotoSlab-Regular.ttf);
+}
+
+/* Bitter-Regular */
+@font-face {
+  font-family: 'Bitter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/font/Bitter/static/Bitter-Regular.ttf);
+}
+
+/* Brygada1918-Regular */
+@font-face {
+  font-family: 'Brygada1918';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/font/Brygada_1918/static/Brygada1918-Regular.ttf);
+}
+
+/* Comic and Cursive Style */
+
+/* ComicNeue-Regular */
+@font-face {
+  font-family: 'ComicNeue';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/font/Comic_Neue/ComicNeue-Regular.ttf);
+}
+
+/* Cookie-Regular */
+@font-face {
+  font-family: 'Cookie';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/font/Cookie/Cookie-Regular.ttf);
+}
+
+/* KottaOne-Regular */
+@font-face {
+  font-family: 'KottaOne';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/font/Kotta_One/KottaOne-Regular.ttf);
+}
+
+/* Explora-Regular */
+@font-face {
+  font-family: 'Explora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/font/Explora/Explora-Regular.ttf);
+}
+
+/* Box Rounded Style */
+
+/* Jura-Regular */
+@font-face {
+  font-family: 'Jura';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/font/Jura/static/Jura-Regular.ttf);
+}
+
+/* Rajdhani-Regular */
+@font-face {
+  font-family: 'Rajdhani';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/font/Rajdhani/Rajdhani-Regular.ttf);
+}
+
+/* Alternative and Rock Style */
+
+/* MetalMania-Regular */
+@font-face {
+  font-family: 'MetalMania';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/font/Metal_Mania/MetalMania-Regular.ttf);
+}
+
+/* ReenieBeanie-Regular */
+@font-face {
+  font-family: 'ReenieBeanie';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/font/Reenie_Beanie/ReenieBeanie-Regular.ttf);
+}
+
+/* SedgwickAve-Regular */
+@font-face {
+  font-family: 'SedgwickAve';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/font/Sedgwick_Ave/SedgwickAve-Regular.ttf);
+}
+
+/* SedgwickAveDisplay-Regular */
+@font-face {
+  font-family: 'SedgwickAveDisplay';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/font/Sedgwick_Ave_Display/SedgwickAveDisplay-Regular.ttf);
+}
